@@ -87,14 +87,15 @@ const JobLists = () => {
 
           <div className="jobs__wrapper">
             {jobData
-              ?.filter((job) => {
+              // eslint-disable-next-line array-callback-return
+              ?.filter((job) =>{
                 if (searchTerm === "") return job;
                 if (
                   job.position.toLowerCase().includes(searchTermValue) ||
                   job.company.toLowerCase().includes(searchTermValue)
                 )
                   return job;
-              })
+                })
               .map((item) => (
                 <div className="job__item" key={item.id}>
                   <img src={item.logo} alt="" />
